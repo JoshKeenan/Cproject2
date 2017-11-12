@@ -53,7 +53,17 @@ int dequeue() {                     // remove patient from the queue
 }
 
 void queue(){
-    printf("Queue\n");
+    int loop;
+
+    for(loop = 0; loop < 10; loop++)
+        if(loop == front)
+            printf("%d(First) ,", mainArray[loop]);
+        else if(loop == back)
+            printf("%d(Last) ,", mainArray[loop]);
+        else
+            printf("%d, ", mainArray[loop]);
+
+    printf("\n");
 }
 
 int first(){                        // get first patient in the queue(pos)
