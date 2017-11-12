@@ -41,8 +41,15 @@ void enqueue(){                     // add patient to the queue
 }
 
 int dequeue() {                     // remove patient from the queue
-    printf("dequeue\n");
-    return 0;
+    int data = mainArray[front++];
+
+    if(front == 60) {
+        front = 0;
+    }
+
+    count--;
+    printf("Dequeued: %i\n", data);
+    return data;
 }
 
 void queue(){
