@@ -8,15 +8,35 @@ int front = 0;
 int back = -1;
 int count = 0;
 
-void enqueue(int n){                // add patient to the queue
+
+bool isFull() {                     // check if queue is full
+    if(count == 60)
+        return 1;
+}
+
+bool isEmpty() {                    // check if queue is empty
+    if(count == 0)
+        return 1;
+}
+
+void enqueue(){                     // add patient to the queue
+
+    int patientID;
     if(!isFull()) {
+        printf("Please input your Patient ID: ");
+        scanf("%i", &patientID);
 
         if(back == 59) {
             back = -1;
         }
 
-        mainArray[++back] = n;
+        mainArray[++back] = patientID;
         count++;
+        printf("enqueued: %i\n", patientID);
+    }
+
+    else{
+        printf("The queue is full!\n");
     }
 }
 
@@ -41,14 +61,6 @@ int last(){                         // get last patient in the queue(pos)
 
 void clear(){                       // clear queue
     printf("clear\n");
-}
-
-bool isEmpty() {
-    return count == 0;
-}
-
-bool isFull() {
-    return count == 60;
 }
 
 void print(){                       // list available doctors
@@ -87,9 +99,10 @@ int main(){
         scanf("%c", &input);
         switch(input[0]) {
             case 'i':
-                enqueue(0);
+                enqueue();
                 break;
             case 'p':
+                isFull();
                 position(0);
                 break;
             case 'q':
