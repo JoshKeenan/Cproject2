@@ -9,7 +9,15 @@ int back = -1;
 int count = 0;
 
 void enqueue(int n){                // add patient to the queue
-    printf("%i, enqueued\n", n);
+    if(!isFull()) {
+
+        if(back == 59) {
+            back = -1;
+        }
+
+        mainArray[++back] = n;
+        count++;
+    }
 }
 
 int dequeue() {                     // remove patient from the queue
