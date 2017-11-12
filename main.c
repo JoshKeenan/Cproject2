@@ -3,6 +3,10 @@
 
 char input[1];
 int quit = 1;
+int mainArray[60];
+int front = 0;
+int back = -1;
+int count = 0;
 
 void enqueue(int n){                // add patient to the queue
     printf("%i, enqueued\n", n);
@@ -31,14 +35,12 @@ void clear(){                       // clear queue
     printf("clear\n");
 }
 
-bool isEmpty(){                     // state if queue is empty
-    printf("isEmpty\n");
-    return true;
+bool isEmpty() {
+    return count == 0;
 }
 
-bool isFull(){                      // state if queue is full
-    printf("isFull\n");
-    return true;
+bool isFull() {
+    return count == 60;
 }
 
 void print(){                       // list available doctors
